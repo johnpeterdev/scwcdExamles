@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="2.4"
+	xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+
+	<listener>
+		<listener-class>scwcd.listeners.HttpSessionActivationListenerImpl</listener-class>
+	</listener>
+
+	<listener>
+		<listener-class>scwcd.listeners.HttpSessionBindingAttirbuteListenerImpl</listener-class>
+	</listener>
+
+	<listener>
+		<listener-class>scwcd.listeners.HttpSessionListenerImpl</listener-class>
+	</listener>
+	<listener>
+		<listener-class>scwcd.listeners.ServletContextAttributeListenerImpl</listener-class>
+	</listener>
+	<listener>
+		<listener-class>scwcd.listeners.ServletContextListenerImpl</listener-class>
+	</listener>
+
+
+	<listener>
+		<listener-class>scwcd.listeners.ServletRequestAttributeListenerImpl</listener-class>
+	</listener>
+	<listener>
+		<listener-class>scwcd.listeners.ServletRequestListenerImpl</listener-class>
+	</listener>
+
+
+
+
+	<context-param>
+		<param-name>initParamContext</param-name>
+		<param-value>ESTE ES UN CONTEXT PARAMETER</param-value>
+	</context-param>
+
+
+
+
+<jsp-config> 
+<jsp-property-group> 
+<url-pattern>/deshabilitarXdescriptor.jsp</url-pattern> 
+<scripting-invalid>true</scripting-invalid> 
+</jsp-property-group>
+</jsp-config> 
+
+
+
+	<servlet>
+		<servlet-name>PruebaListeners</servlet-name>
+		<servlet-class>scwcd.listeners.PruebaListeners</servlet-class>
+
+		<init-param>
+			<param-name>initParam</param-name>
+			<param-value>ESTE ES UN INIT PARAM</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+
+	</servlet>
+	<servlet>
+
+		<servlet-name>PruebaInitParams</servlet-name>
+		<servlet-class>scwcd.initParams.PruebaInitParams</servlet-class>
+			<init-param>
+			<param-name>initParam</param-name>
+			<param-value>ESTE ES UN INIT PARAM</param-value>
+		</init-param>
+	</servlet>	
+	
+	
+	<servlet>
+		<servlet-name>PruebaJsp</servlet-name>
+		<jsp-file>/initParam.jsp</jsp-file>
+		<init-param>
+			<param-name>initParame</param-name>
+			<param-value>ESTE ES UN INIT PARAM DE JSP</param-value>
+		</init-param>
+		<load-on-startup>0</load-on-startup>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>
+		StandardActions</display-name>
+		<servlet-name>StandardActions</servlet-name>
+		<servlet-class>
+		scwcd.standardActions.StandardActions</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PruebaListeners</servlet-name>
+		<url-pattern>/PruebaListeners.do</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>PruebaInitParams</servlet-name>
+		<url-pattern>/PruebaInitParams.do</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>StandardActions</servlet-name>
+		<url-pattern>/StandardActions.do</url-pattern>
+	</servlet-mapping>
+
+</web-app>
